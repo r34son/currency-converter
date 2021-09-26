@@ -6,6 +6,6 @@ const cbr = axios.create({
   timeout: 1000,
 });
 
-export const fetchDaily = () => cbr.get<Daily>('daily_json.js');
+export const fetchDaily = async () => (await cbr.get<Daily>('daily_json.js')).data;
 
 export default cbr;

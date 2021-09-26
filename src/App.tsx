@@ -2,7 +2,9 @@ import { useCallback, useMemo, useState } from 'react';
 import { QueryClientProvider } from 'react-query';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline, PaletteMode, useMediaQuery } from '@mui/material';
+import { BrowserRouter } from 'react-router-dom';
 import PaletteModeContext from './PaletteModeContext';
+import Layout from './components/Layout';
 import queryClient from './queryClient';
 
 const App = () => {
@@ -22,9 +24,9 @@ const App = () => {
       <PaletteModeContext.Provider value={toggleMode}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <div className="App">
-            Currency Converter
-          </div>
+          <BrowserRouter>
+            <Layout />
+          </BrowserRouter>
         </ThemeProvider>
       </PaletteModeContext.Provider>
     </QueryClientProvider>
